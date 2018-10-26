@@ -30,11 +30,11 @@ function formatPhoneNumber(num) {
  * @param {String?} email
  * @returns {Boolean}
  */
-function add(phone, name, email) {
+function add(phone, name, email = '') {
     if (phoneBook.has(phone) || !isValidPhone(phone) || !isValidName(name)) {
         return false;
     }
-    phoneBook.set(phone, [phone, name, email || '']);
+    phoneBook.set(phone, [phone, name, email]);
 
     return true;
 }
@@ -46,11 +46,11 @@ function add(phone, name, email) {
  * @param {String?} email
  * @returns {Boolean}
  */
-function update(phone, name, email) {
+function update(phone, name, email = '') {
     if (!phoneBook.has(phone) || !isValidPhone(phone) || !isValidName(name)) {
         return false;
     }
-    phoneBook.set(phone, [phone, name, email || '']);
+    phoneBook.set(phone, [phone, name, email]);
 
     return true;
 }
